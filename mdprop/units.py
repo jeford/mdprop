@@ -67,6 +67,6 @@ AMBERCHARGE_TO_AU = 1.0/18.2223
 # Print all unit conversions
 if __name__ == '__main__':
     conversions = dict(locals())
-    for key, val in conversions.iteritems():
+    for key, val in conversions.items():
         if key[0] != '_':
             print(" Conversion: % 22s, Value: %11.11E" % (key, val))
