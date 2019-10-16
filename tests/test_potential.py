@@ -51,7 +51,7 @@ class TestPotential(unittest.TestCase):
         offset_mag = 0.5
         offset = np.array([0.0, offset_mag, 0.0]) # Halfspace halfway between H atoms and O atom
         k = 2.5
-        potential = mdprop.potential.SoftHalfSpace(normal, offset, k)
+        potential = mdprop.potential.SoftHalfSpace(normal, k, offset)
         E, grad = potential.compute_gradient(self.X)
         E_check = 0.5 * k * (self.X[2, 1] - offset_mag)**2
         num_grad = mdprop.utils.numerical_gradient(self.X, potential.compute_energy)

@@ -74,11 +74,11 @@ class TestUtils(unittest.TestCase):
         Xrot = np.dot(self.X, Rgen)
         Xrot_cent = Xrot - mdprop.utils.compute_center_of_mass(Xrot, self.M)
         Xcent = self.X - mdprop.utils.compute_center_of_mass(self.X, self.M)
-        Xrec, R = mdprop.utils.align(Xrot_cent, Xcent, self.M)
-        Rabs = np.abs(R)
-        Rgen_abs = np.abs(Rgen) # Need absolute values (and transpose) due to weirdness in phases of rotation matrix
+        Xrec = mdprop.utils.align(Xrot_cent, Xcent, self.M)
+        #Rabs = np.abs(R)
+        #Rgen_abs = np.abs(Rgen) # Need absolute values (and transpose) due to weirdness in phases of rotation matrix
         self.assertTrue(np.allclose(Xrec, Xcent))
-        self.assertTrue(np.allclose(Rabs, Rgen_abs) or np.allclose(Rabs, Rgen_abs.T))
+        #self.assertTrue(np.allclose(Rabs, Rgen_abs) or np.allclose(Rabs, Rgen_abs.T))
         
     def test_numerical_gradient(self):
         def func(x):
