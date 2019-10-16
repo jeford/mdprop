@@ -39,7 +39,7 @@ state = {
 
 boundary_r = mdprop.utils.density_to_spherical_radius(masses, density) * rscale
 boundary_k = np.reshape(masses, (-1, 1)) * 10.0 * KCAL_MOL_TO_AU / ANGSTROM_TO_AU**2 / AMU_TO_AU # a.u. = 10.0 kcal/mol/Angstrom**2/amu
-boundary_pot = mdprop.potential.SoftSphere(radius=boundary_r, magnitude=boundary_k, mass_dependent=False)
+boundary_pot = mdprop.potential.SoftSphere(radius=boundary_r, magnitude=boundary_k)
 
 # Use DFTB in with context to handle working directory for ASE
 with mdprop.wrapper.DFTBPlus(symbols) as DFTB:

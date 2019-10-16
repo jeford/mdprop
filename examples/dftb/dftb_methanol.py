@@ -26,12 +26,12 @@ state = {
     'masses': masses,
 }
 
-# Use DFTB in with context to handle working directory for ASE
+# Use DFTB in 'with' context to handle working directory for ASE
 with mdprop.wrapper.DFTBPlus(symbols) as DFTB:
     # Construct update objects using pointers to different forces
     vel_update = mdprop.update.VelocityUpdate(DFTB, masses)
 
-    # Construct integrator (Langevin / DFTB / Position)
+    # Construct integrator (Velocity[DFTB] / Position / Velocity[DFTB])
     integ = mdprop.integrator.VelocityVerlet(vel_update)
     print(integ)
 
