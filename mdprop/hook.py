@@ -465,8 +465,8 @@ class WriteCheckpoint(Hook):
 
             if self.params['num_backups'] > 0 and os.path.isfile(self.params['filename']):
                 os.rename(self.params['filename'], self.params['filename'] + '_0')
-            with open(self.params['filename'], 'w') as fout:
-                pkl.dump(state, fout, protocol=2)
+            with open(self.params['filename'], 'wb') as fout:
+                pkl.dump(state, fout)
         self.state_update = {}
         return self.state_update
 

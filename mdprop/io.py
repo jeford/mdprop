@@ -65,7 +65,7 @@ def read_traj_xyz(filename, unit_conversion=units.ANGSTROM_TO_AU, spaced=False):
             # Read in lines
             elif mod>=2 and mod<2+natom:
                 sp = line.split()
-                currX.append(map(float, sp[1:]))
+                currX.extend(list(map(float, sp[1:])))
 
     # Get final frame
     if currX:
