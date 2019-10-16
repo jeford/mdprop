@@ -6,6 +6,7 @@ class DoubleWell(mdprop.potential.Potential):
     def __init__(self, a, b):
         self.a = a
         self.b = b
+        super(DoubleWell, self).__init__()
 
     def compute_energy_per_particle(self, X):
         X2 = X**2
